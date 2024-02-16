@@ -14,6 +14,7 @@ protocol ListOfmoviesUI: AnyObject {
 class ListOfMoviesPresenter {
     var ui: ListOfmoviesUI?
     private let ListOfMoviesInteractor: ListOfMoviesInterarctor
+    var models : [PopularMoviEntity] = []
     
     init(ListOfMoviesInteractor: ListOfMoviesInterarctor) {
         self.ListOfMoviesInteractor = ListOfMoviesInteractor
@@ -21,8 +22,8 @@ class ListOfMoviesPresenter {
     
     func onViewAppear() {
         Task {
-            let models = await ListOfMoviesInteractor.getListOfMovies()
-            ui?.update(movies: models.results)
+            models = await ListOfMoviesInteractor.getListOfMovies().results
+            ui?.update(movies: models)
         }
     }
 }

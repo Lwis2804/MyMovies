@@ -7,12 +7,12 @@
 
 import Foundation
 
-//7b38d5c3969b52351d5378d8c165103d
+//3c56823841920fc21c9d516189db13f4
 //
 
 class ListOfMoviesInterarctor {
     func getListOfMovies() async -> PopularMovieResponseEntity {
-        let url = URL(string: "http://api.themoviedb.org/3/movie/popular?api_key=7d681f214b74dd3d5938832ab57ded6b")!
+        let url = URL(string: "http://api.themoviedb.org/3/movie/popular?api_key=3c56823841920fc21c9d516189db13f4")!
         let (data, _) = try! await URLSession.shared.data(from: url)
         return try! JSONDecoder().decode(PopularMovieResponseEntity.self, from: data)
     }

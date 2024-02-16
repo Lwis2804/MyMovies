@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-@available(iOS 16.0, *)
+
 class MovieCellView: UITableViewCell {
     let movieImageView: UIImageView = {
         let imageView = UIImageView()
@@ -61,11 +61,12 @@ class MovieCellView: UITableViewCell {
             
             movieName.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor, constant: 18),
             movieName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            movieName.topAnchor.constraint(equalTo: movieImageView.topAnchor, constant: 24),
+            movieName.topAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -12),
             
             movieDescrition.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor, constant: 20),
             movieDescrition.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            movieDescrition.topAnchor.constraint(equalTo: movieName.bottomAnchor, constant: 8)
+            movieDescrition.topAnchor.constraint(equalTo: movieName.bottomAnchor, constant: 8),
+            movieDescrition.topAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -12),
         ])
     }
     
