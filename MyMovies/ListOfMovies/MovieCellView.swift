@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 @available(iOS 16.0, *)
 class MovieCellView: UITableViewCell {
@@ -69,6 +70,7 @@ class MovieCellView: UITableViewCell {
     }
     
     func configure(model : PopularMoviEntity) {
+        movieImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w200" + model.imageURL))
         movieName.text = model.title
         movieDescrition.text = model.overview
     }

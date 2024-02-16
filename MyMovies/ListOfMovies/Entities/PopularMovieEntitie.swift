@@ -9,7 +9,7 @@ import Foundation
 
 struct PopularMoviEntity : Decodable {
     var id : Int
-    var title: Int
+    var title: String
     var overview: String
     var imageURL: String
     var votes : Double
